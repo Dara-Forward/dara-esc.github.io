@@ -1,26 +1,12 @@
-const userCardTemplate = document.querySelector("[data-user-template]")
-const userCardContainer = document.querySelector("[data-user-cards-container]")
-const searchInput = document.querySelector("[data-search]")
+    const toggleBtn = document.querySelector('.toggle_btn')
+    const toggleBtnIcon = document.querySelector('.toggle_btn i')
+    const dropDownMenu = document.querySelector('.dropdown_menu')
 
-let users = []
+    toggleBtn.onclick = function () {
+        dropDownMenu.classList.toggle('open')
+        const isOpen = dropDownMenu.classList.contains('open')
 
-searchInput.addEventListener("input", () => {
-    const value = e.target.value
-    user
-    const isVisible
-})
-
-fetch("https://jsonplaceholder.typicode.com/users")
-.then(res => res.json())
-.then(data => {
-    users = data.map(user => {
-        const card = userCardTemplate.content.cloneNode(true).children[0]
-        const header = card.querySelector("[data-header]")
-        const bodys = card.querySelector("[data-bodys]")
-        header.textContent = user.name
-        bodys.textContent = user.id
-        userCardContainer.append(card)
-        return { name: user.name, id: user.id, Element: card }
-    })
-    
-})
+        toggleBtnIcon.classList = isOpen
+        ? 'fa-solid fa-xmark'
+        : 'fa-solid fa-bars'
+    }
